@@ -1,4 +1,4 @@
-package com.sps.todo
+package com.sps.todo.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
