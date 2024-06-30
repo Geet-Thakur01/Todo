@@ -1,3 +1,11 @@
 package com.sps.todo.data.models
 
-data class Todo(val item:String)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "todo")
+data class Todo(
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
+    val item:String
+)
