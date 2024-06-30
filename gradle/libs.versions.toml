@@ -10,6 +10,8 @@ activityCompose = "1.9.0"
 composeBom = "2023.08.00"
 ksp = "1.9.23-1.0.20"
 roomVersion = "2.6.1"
+lifecycle_version="2.8.2"
+activitVersion="1.5.0"
 
 
 
@@ -29,8 +31,13 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
-#room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 room = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref="lifecycle_version"}
+viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref="lifecycle_version"}
+activity = { module = "androidx.activity:activity-ktx", version.ref="activitVersion"}
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

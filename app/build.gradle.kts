@@ -63,8 +63,12 @@ dependencies {
     // room
     implementation(libs.room)
     annotationProcessor(libs.room.compiler)
-//    ksp(libs.room.compiler)
-//    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    //live data
+    implementation(libs.livedata)
+    implementation(libs.activity)
+    implementation(libs.viewmodel.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

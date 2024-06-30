@@ -8,13 +8,13 @@ import com.sps.todo.data.models.Todo
 
 interface TodoDao {
     @Insert
-    fun insert(todo: Todo?)
+    fun insert(todo: Todo)
 
     @Query("SELECT * FROM todo")
     fun getAllTodoItems(): List<Todo>
 
     @Query("SELECT * FROM todo WHERE id = :id")
-    fun getTodoTaskById(id: Int?): Todo?
+    fun getTodoTaskById(id: Int): Todo
 
     @Update
     fun update(todo: Todo?)
