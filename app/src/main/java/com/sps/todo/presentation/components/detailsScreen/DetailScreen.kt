@@ -1,42 +1,37 @@
 package com.sps.todo.presentation.components.detailsScreen
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
+import com.sps.todo.R
 import com.sps.todo.presentation.viewmodels.MainActivityViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
-    paddingValues: PaddingValues,
-    mainActivityViewModel: MainActivityViewModel,
+    navController: NavHostController,
+    viewModel: MainActivityViewModel,
 ) {
-    var text by rememberSaveable { mutableStateOf("") }
-
-    Column(modifier = Modifier.padding(paddingValues).padding(top = 20.dp).fillMaxSize()) {
-        TextField(
-            value = text,
-            onValueChange = { newText -> text = newText },
-            label = { Text("Enter todo item") }
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        ElevatedButton(onClick = {
-            mainActivityViewModel.addTodoItem(text)
-
-        }) {
-            Text(text = "Add ToDo")
-        }
+    val addButtonAction:()->Unit={navController.navigateUp()}
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
+                title = {
+                    Text(stringResource(id = R.string.app_name))
+                }
+            )
+        },
+    ) { innerPadding ->
+        ContentDetailsScreen(innerPadding, viewModel,addButtonAction)
     }
 }

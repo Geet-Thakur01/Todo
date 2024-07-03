@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Todo</string>
+    <string name="empty_list_msg">"Press the + Button and add a ToDo item"</string>
+    <string name="error_msg">"Please enter valid text!"</string>
 </resources>

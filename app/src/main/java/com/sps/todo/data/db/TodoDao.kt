@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.sps.todo.data.models.Todo
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
@@ -14,7 +15,7 @@ interface TodoDao {
     fun insert(todo: Todo)
 
     @Query("SELECT * FROM todo")
-    fun getAllTodoItems(): List<Todo>
+    fun getAllTodoItems(): Flow<List<Todo>>
 
     @Query("SELECT * FROM todo WHERE id = :id")
     fun getTodoTaskById(id: Int): Todo
