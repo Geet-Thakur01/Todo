@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.ksp)
+    id ("kotlin-kapt")
 }
 
 android {
@@ -61,14 +61,14 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     // room
-    implementation(libs.room)
-    annotationProcessor(libs.room.compiler)
-    ksp(libs.room.compiler)
-    implementation(libs.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
     //live data
     implementation(libs.livedata)
     implementation(libs.activity)
     implementation(libs.viewmodel.compose)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

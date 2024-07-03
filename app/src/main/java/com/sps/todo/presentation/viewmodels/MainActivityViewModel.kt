@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sps.todo.data.models.Todo
 import com.sps.todo.domain.usecases.Useases
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -23,8 +24,8 @@ class MainActivityViewModel : ViewModel() {
     }
 
     fun addTodoItem(text:String){
-        viewModelScope.launch {
-//            useases.insertTodoUseCase.excecute()
+        viewModelScope.launch(Dispatchers.IO) {
+            useases.insertTodoUseCase.excecute(Todo(text = text))
         }
     }
 }

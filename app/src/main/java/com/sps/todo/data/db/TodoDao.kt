@@ -1,11 +1,14 @@
 package com.sps.todo.data.db
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.sps.todo.data.models.Todo
 
+
+@Dao
 interface TodoDao {
     @Insert
     fun insert(todo: Todo)
@@ -17,8 +20,8 @@ interface TodoDao {
     fun getTodoTaskById(id: Int): Todo
 
     @Update
-    fun update(todo: Todo?)
+    fun update(todo: Todo)
 
     @Delete
-    fun delete(todo: Todo?)
+    fun delete(todo: Todo)
 }
