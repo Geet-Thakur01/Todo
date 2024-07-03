@@ -66,7 +66,6 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
     //live data
-    implementation(libs.livedata)
     implementation(libs.activity)
     implementation(libs.viewmodel.compose)
 
