@@ -8,4 +8,8 @@ import com.sps.todo.data.models.Todo
 abstract class AppDataBase : RoomDatabase(){
     abstract fun todoDao():TodoDao
 
+    companion object {
+        const val DB_NAME= "todo_db"
+    }
+
 }

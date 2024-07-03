@@ -1,6 +1,8 @@
 package com.sps.todo.domain.usecases
 
-data class Useases(
-    val insertTodoUseCase: InsertTodoUseCase=InsertTodoUseCase(),
-    val todoListUseCase: TodoListUseCase=TodoListUseCase()){
-}
+import javax.inject.Inject
+
+data class UseCases @Inject constructor(
+    val insertTodoUseCase: InsertTodoUseCase,
+    val todoListUseCase: TodoListUseCase
+)
